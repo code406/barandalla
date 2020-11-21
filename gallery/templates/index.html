@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="gallery" class="containerw3">
+{% for album in albums %}
+<div class="brick">
+    <a class="brick-link" id="brick-link{{forloop.counter}}" href="{% url 'gallery:album' album.id %}" data-width="{{album.cover.width}}" data-height="{{album.cover.height}}">
+        <img class="brick-img" id="brick-img{{forloop.counter}}" src="{{album.cover.url}}" alt="{{album.name}}" title="{{album.name}}">
+        <div class="overlay">
+            <div class="albumtit">{{album.name}}</div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+
+<!-- Grid -->
+<script>
+    function resize_grid(nbricks) {
+        //append to css a lot of brick styles
+        var styles = "";
+        var h = $(".brick").height();
+        console.log(h);
+        for (var i=1; i<=nbricks; i++) { 
+            var ogw = $("#brick-link"+i).attr('data-width');
+            var ogh = $("#brick-link"+i).attr('data-height');
+            var w = h*ogw/ogh;
+            console.log(i+", "+h+", "+ogh+", "+w+", "+ogw);
+            styles += ".masonry-with-columns div:nth-child("+i+")\{width:"+w+"px;} ";
+            console.log(styles);
+        }
+        var styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = styles;
+        console.log(styleSheet);
+        document.head.appendChild(styleSheet);
+    }
+</script>
+
+{% endblock content %}

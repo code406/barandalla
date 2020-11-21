@@ -1,0 +1,380 @@
+body,div,h1,h2,h3,h4,h5,h6,html,img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html { box-sizing: border-box; }
+
+body {
+  line-height: 1.8;
+  font-family: "Work Sans", sans-serif;
+  background: white;
+  color: #465665;
+}
+
+footer {
+  color: #888;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+footer a {
+  color: #888;
+}
+
+*, :after, :before { box-sizing: inherit; }
+
+/* latin-ext */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/worksans/v8/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBiEJpp_c.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/worksans/v8/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8Jpg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  color: #5b7083;
+  transition: all .25s ease-in-out;
+}
+
+/* Font sizes */
+h1, h2, h3, h4 {
+  margin: 0.5em 0 0.75em;
+  line-height: 1.3;
+}
+h1 { font-size: 1.5em;  }
+h2 { font-size: 1.25em; }
+h3 { font-size: 1.125em;}
+h4 { font-size: 1em;    }
+@media only screen and (min-width: 1024px) {
+  h1 { font-size: 2em;   }
+  h2 { font-size: 1.65em;}
+  h3 { font-size: 1.25em;}
+  h4 { font-size: 1em;   }
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  h1 { font-size: 1.75em;}
+  h2 { font-size: 1.45em;}
+}
+
+.navbar {
+  background: white; color: black; text-transform: uppercase;
+}
+.navbar-header {
+  text-align: center; width: 100%; margin:0; padding:20px 0;
+}
+.navbar-brand {
+  line-height: 1.8;
+  margin: 0 auto;
+  position: relative;
+  font-family: "Work Sans", sans-serif;
+  font-size: 28px;
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  word-spacing: 6px;
+  float:none; 
+  font-weight: 400;
+  padding: 0;
+}
+.navbar-sub {
+  line-height: 1.8;
+  margin: 0 auto;
+  position: relative;
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  color: #aaa;
+  letter-spacing: .14em;
+  word-spacing: 4px;
+  float:none; 
+  font-weight: 400;
+  padding: 0;
+}
+@media only screen and (max-width: 600px) {
+  .navbar-brand {
+    font-size: 20px;
+    word-spacing: 5.5px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .navbar-header { padding-top: 10px;}
+  .navbar-brand {
+    font-size: 19px;
+    word-spacing: 5px;
+  }
+  .navbar-sub {
+    font-size: 15px;
+    word-spacing: 4px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .navbar-header { padding-top: 5px;}
+  .navbar-brand {
+    font-size: 17px;
+    word-spacing: 4.5px;
+  }
+  .navbar-sub {
+    font-size: 14px;
+    word-spacing: 4px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .navbar-header { padding-top: 5px;}
+  .navbar-brand {
+    font-size: 16px;
+    word-spacing: 4px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .navbar-header { padding-top: 5px;}
+  .navbar-brand {
+    font-size: 15px;
+    word-spacing: 3px;
+  }
+  .navbar-sub {
+    font-size: 12px;
+    word-spacing: 3px;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .navbar-header { padding-top: 5px;}
+  .navbar-brand {
+    font-size: 14px;
+    word-spacing: 2px;
+  }
+}
+
+.wrapper {
+  margin: 20px auto 20px auto;
+  padding: 0px 15px;
+  max-width: 1500px;
+}
+
+.filter-button-group {
+  text-align: left;
+  display: block;
+  margin: 50px 0 20px 0;
+}
+
+.filter-button-group .filter-button {
+  display: inline-block;
+  transition: color .2s linear;
+  margin: 0 15px 0 0;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  color: #425568;
+  padding: 7px 10px 7px 10px;
+  line-height: 1em;
+  transition: all 0.4s ease-in-out;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  min-width: 50px;
+  text-align: center;
+}
+
+.filter-button-group .filter-button:last-child {
+  margin: 0;
+}
+
+.filter-button.is-checked {
+  background-color: #EEE9ED;
+}
+
+label {
+  display: block;
+}
+
+ul {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hlink {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 18px;
+  letter-spacing: .05em;
+}
+
+.containerw3 {
+	display: flex;
+	overflow: hidden;
+	flex-wrap: wrap;
+  margin: -2.5px;
+  padding-top: 20px;
+}
+.brick {
+	position: relative;
+	display: inline-block;
+	height: 300px;
+	margin: 5px;
+	flex-grow: 1;
+}
+.brick-img {
+	height: 300px;
+	object-fit: cover;
+	max-width: 100%;
+	min-width: 100%;
+	vertical-align: bottom;
+}
+
+@media only screen and (max-width: 800px){
+  .filter-button-group {
+    margin: 40px 0 10px 0;
+  }
+}
+@media only screen and (max-width: 550px){
+  .filter-button-group .filter-button {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 500px){
+  .filter-button-group {
+    margin: 30px 0 5px 0;
+  }
+  .filter-button-group .filter-button {
+    display: block;
+    text-align: left;
+  }
+}
+
+
+/* W3SCHOOLS SLIDESHOW GALLERY */
+
+    /* Position the image container (needed to position the left and right arrows) */
+    .container {
+      position: relative;
+      width: 100%;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+      background-color: #222;
+      height: 500px; /*can be anything*/
+      width: 100%; /*can be anything*/
+      /*display: inline-block;*/
+      position: relative;
+    }
+
+    .mySlides img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+      cursor: pointer;
+    }
+
+    /* Container for image text */
+    .caption-container {
+      text-align: center;
+      background-color: #222;
+      padding: 2px 16px;
+      color: white;
+    }
+
+    .row {
+      margin: 0 auto;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Six columns side by side */
+    .column {
+      float: left;
+      width: 16.6%;
+    }
+
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+      opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+/**************************/  
+
+.fotorama__wrap {
+  margin: 0 auto;
+}
+.fotorama__stage {border: 2px solid #ddd}
+.fotorama__nav {}
+.fotorama__caption{
+  top: -2px !important;
+  font-family: "Work Sans", sans-serif !important;
+  left: -2px !important;
+}
+.fotorama__caption__wrap {}
+.overlay {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  display:inline-block;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+.albumtit {
+  position:relative; top: 45%; 
+  text-align: center;
+  margin: 0 30px; 
+  border: 5px solid white;
+  color: #111; 
+  background-color: white;
+  font-size: 18px;
+  letter-spacing: .05em;
+  padding: 5px 0;
+  text-transform: uppercase;
+}
+
+.album_name {
+  text-align: center; 
+  margin: 0 auto;
+  padding: 12px 30px;
+  margin-top: 50px; 
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: .05em;
+}
