@@ -5,8 +5,9 @@
 {% if images %}
 <div class="fotorama" data-nav="thumbs" data-autoplay="true" data-fit="contain" 
                       data-transition="crossfade" data-navposition="top" 
-                      data-keyboard="true" data-loop="true" data-allowfullscreen="true",
-                      data-trackpad="true" data-height="500px" data-width="100%" data-hash="true" data-click="false">
+                      data-keyboard="true" data-loop="true" data-allowfullscreen="true" 
+                      data-trackpad="true" data-height="500px" data-width="100%" 
+                      data-hash="true" data-click="false">
     {% for image in images %}
     <img src="{{image.image.url}}" data-caption="{{image.name}}<br>{{image.details}}<br>{{image.size}}<br>{%if image.disp %}Disponible{%else%}No disponible{%endif%}">
     {% endfor %}

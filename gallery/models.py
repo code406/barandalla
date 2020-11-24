@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 class Album(models.Model):
@@ -10,7 +11,7 @@ class Album(models.Model):
         verbose_name_plural = 'Bloques'
     
     def __str__(self):
-        return self.name
+        return "[" + str(self.id) + "] " + self.name
 
 
 class Image(models.Model):
@@ -26,4 +27,7 @@ class Image(models.Model):
         verbose_name_plural = 'Imágenes'
 
     def __str__(self):
-        return self.name
+        return "[" + str(self.id) + "] " + self.name + " - " + str(os.path.split(self.image.name)[1])
+    
+    def __repr__(self):
+        return "[" + str(self.id) + "] " + self.name + "\n  - " + str(self.image) + "\n  - Mat/Tec: " + self.details + "\n  - Dimensiones: " + self.size + "\n  - Disponible: " + str(self.disp) + "\n  - Album: " + str(self.tag)
