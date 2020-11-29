@@ -17,9 +17,15 @@ def file_list(album_dir):
     stdout = subprocess.check_output(command, shell=True)
     full_lines = stdout.decode().splitlines()[:-1]
     lst = []
+    #i = 1 #ON-DL
     for l in full_lines:
         filename = l.split(" +0000 ")[1]
-        if not filename.endswith(".txt"): lst.append(album_dir + filename)
+        if not filename.endswith(".txt"): 
+            new_name = album_dir + filename
+            #new_name = album_dir + str(i).zfill(4) + ".jpg" #ON-DL
+            #os.rename(album_dir + filename, new_name) #ON-DL
+            lst.append(new_name)
+            #i+=1 #ON-DL
     return lst
 
 
