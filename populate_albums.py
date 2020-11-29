@@ -30,7 +30,7 @@ def populate(album_name, album_dir):
     except:
         print("Couldn't get or create album '" + album_name + "'!")
         return
-    
+
     filenames = file_list(album_dir)
     if not filenames:
         print("No filenames found. Does " + album_dir + " contain any images?") 
@@ -46,6 +46,6 @@ def populate(album_name, album_dir):
 
 if __name__ == '__main__':
     print("===============================================================")
-    for album_name, album_dir in zip(album_names, album_dirs):
+    for album_name, album_dir in zip(reverse(album_names), reverse(album_dirs)):
         populate(album_name, album_dir)
         print("===============================================================")
