@@ -46,6 +46,6 @@ def populate(album_name, album_dir):
 
 if __name__ == '__main__':
     print("===============================================================")
-    for album_name, album_dir in zip(reverse(album_names), reverse(album_dirs)):
+    for album_name, album_dir in zip(reversed(album_names), reversed(album_dirs)):
         populate(album_name, album_dir)
         print("===============================================================")
