@@ -8,25 +8,33 @@ from unidecode import unidecode
 from gallery.models import Image, Album
 
 
+# SET RENAME FILES TO TRUE RIGHT AFTER DL AND RUN PLS
+just_rename_files = False
+
 album_names = ["Paisaje Localizado", "Paisaje Imaginario", "Vida Urbana", "Metrópolis", "Abstracto Temático", "Solicitudes"] #Just change this one!
 album_dirs = ["images/" + unidecode(a.lower().replace(" ", "_")) + "/" for a in album_names]
 
 
-def file_list(album_dir):
+def rename_files(album_dir):
     command = "ls " + album_dir + " --full-time -i | sort -u"
     stdout = subprocess.check_output(command, shell=True)
     full_lines = stdout.decode().splitlines()[:-1]
     lst = []
-    #i = 1 #ON-DL
+    i = 1
     for l in full_lines:
         filename = l.split(" +0000 ")[1]
         if not filename.endswith(".txt"): 
-            new_name = album_dir + filename
-            #new_name = album_dir + str(i).zfill(4) + ".jpg" #ON-DL
-            #os.rename(album_dir + filename, new_name) #ON-DL
+            new_name = album_dir + str(i).zfill(4) + ".jpg"
+            os.rename(album_dir + filename, new_name)
             lst.append(new_name)
-            #i+=1 #ON-DL
+            i+=1
     return lst
+
+
+def file_list(album_dir):
+    command = "ls " + album_dir + " | sort -u"
+    stdout = subprocess.check_output(command, shell=True)
+    return [album_dir + name for name in stdout.decode().splitlines()]
 
 
 def populate(album_name, album_dir):
@@ -39,8 +47,12 @@ def populate(album_name, album_dir):
     Image.objects.filter(tag=album).delete() # REMOVE THE DELETO IN REAL V (!!!)
     with open(album_dir + "image_info.txt", 'r') as in_file:
         lines = [line for line in in_file.readlines() if line.strip()]
-    
-    filenames = file_list(album_dir)
+
+    if just_rename_files:
+        print("Renaming files for " + album_dir + str(rename_files(album_dir)))
+        return
+    else:
+        filenames = file_list(album_dir)
     if not filenames:
         print("No filenames found. Does " + album_dir + " contain any images?") 
         return
