@@ -9,7 +9,7 @@
                       data-trackpad="true" data-height="500px" data-width="100%" 
                       data-hash="true" data-click="false">
     {% for image in images %}
-    <img src="{{image.image.url}}" data-caption="{{image.name}}<br>{{image.details}}<br>{{image.size}}<br>{%if image.disp %}Disponible{%else%}No disponible{%endif%}">
+    <img src="{{image.image.url}}" data-caption="<span style='font-weight: bold'>{{image.name}}</span><br>{{image.details}}<br>{{image.size}}<br>{%if image.disp %}<span style='color: green'>Disponible{%else%}<span style='color: red'>No disponible{%endif%}</span>">
     {% endfor %}
 </div>
 {% endif %}

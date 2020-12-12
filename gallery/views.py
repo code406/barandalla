@@ -9,12 +9,12 @@ def album(request, album_id=0):
     images = []
     album_name = "¡Vaya! Esta página no existe."
     if album_id == 0:
-        images = Image.objects.all().reverse()
+        images = Image.objects.all().order_by('id')
         album_name = "Todo"
     else:
         albums = Album.objects.filter(id=album_id)
         if albums:
-            images = Image.objects.filter(tag=albums[0])
+            images = Image.objects.filter(tag=albums[0]).order_by('id')
             album_name = albums[0].name
     #return render(request, 'gallery.html', {'images': images})
     return render(request, 'album.html', {'images': images, 'album_name': album_name})

@@ -9,10 +9,11 @@ class Album(models.Model):
     class Meta:
         verbose_name = 'Bloque'
         verbose_name_plural = 'Bloques'
+        ordering = ['name']
     
     def __str__(self):
-        return "[" + str(self.id) + "] " + self.name
-
+        #return "[" + str(self.id) + "] " + self.name
+        return self.name
 
 class Image(models.Model):
     image = models.ImageField(verbose_name="Archivo", upload_to='gallery', default='gallery/no-img.jpg')
@@ -25,9 +26,11 @@ class Image(models.Model):
     class Meta:
         verbose_name = 'Imagen'
         verbose_name_plural = 'Imágenes'
+        ordering = ['name']
 
     def __str__(self):
-        return "[" + str(self.id) + "] " + self.name + " - " + str(os.path.split(self.image.name)[1])
-    
+        #return "[" + str(self.id) + "] " + self.name + " - " + str(os.path.split(self.image.name)[1])
+        return self.name
+
     def __repr__(self):
         return "[" + str(self.id) + "] " + self.name + "\n  - " + str(self.image) + "\n  - Mat/Tec: " + self.details + "\n  - Dimensiones: " + self.size + "\n  - Disponible: " + str(self.disp) + "\n  - Album: " + str(self.tag)
